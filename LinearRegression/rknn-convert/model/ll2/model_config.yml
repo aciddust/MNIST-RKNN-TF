@@ -1,0 +1,20 @@
+project-name: wxb
+models:
+  wxb:
+    platform: tensorflow
+    model_file_path: ../../../output2/frozen_regression.pb
+    subgraphs:
+        inputs:
+          - x
+        input-size-list:
+          - 2,3,2
+        outputs:
+          - hypothesis
+    quantize: true
+    source: text
+    dataset: ../../../dataset/vector.txt
+    configs:
+      quantized_dtype: asymmetric_quantized-u8
+      batch_size: 1
+      
+      
