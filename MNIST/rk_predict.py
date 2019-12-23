@@ -30,6 +30,7 @@ def load_model(model_name):
     print('done')
     return rknn
 def predict(rknn,length):
+    '''
     acc_count = 0
     for i in range(length):
         # im = mnist.test.images[i]
@@ -49,21 +50,20 @@ def predict(rknn,length):
             acc_count += 1
     result = float(acc_count)/length
     print('result:',result)
-    # acc_count = 0
-    # length = len(mnist.test.images)
-    # for i in range(length):
-        # im = mnist.test.images[i]# 加载图片
-        # outputs = rknn.inference(inputs=[im])   # 추론 실행 및 추론 결과 얻기
-        # pred, prob = get_predict(outputs)     # 추론 결과를 시각적 정보로 전환
-        # if i%100 == 0:
-            # print(prob)
-            # print(pred)
-            # print(acc_count)
-            # print(list(mnist.test.labels[i]).index(1))
-        # if list(mnist.test.labels[i]).index(1) == pred:
-            # acc_count += 1
-    # result = float(acc_count)/length
-    # print('result:',result)
+    '''
+
+    acc_count = 0
+    length = len(mnist.test.images)
+    for i in range(length):
+        im = mnist.test.images[i]
+        outputs = rknn.inference(inputs=[im])   # 추론 실행 및 추론 결과 얻기
+        pred, prob = get_predict(outputs)     # 추론 결과를 시각적 정보로 전환
+        if list(mnist.test.labels[i]).index(1) == pred:
+            acc_count += 1
+        if i%100 == 0:
+            print('입력 값 : {0} / 예상한 값 : {1} / 예측 정확도 : {2} / 맞은 갯수 : {3}'.format(list(mnist.test.labels[i]).index(1),pred, prob, acc_count))
+    result = float(acc_count)/length
+    print('result:',result)
 if __name__=="__main__":
     # 해당 양자화 또는 비 양자화 rknn 모델로 변경
     model_name = './mnist.rknn'

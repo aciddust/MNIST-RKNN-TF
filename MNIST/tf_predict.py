@@ -31,4 +31,5 @@ for length in [100,500,1000,10000]:
             print("first image:",y_conv_2[0])
             correct_prediction_2 = tf.equal(tf.argmax(y_conv_2, 1), tf.argmax(y_2, 1))
             accuracy_2 = tf.reduce_mean(tf.cast(correct_prediction_2, "float"))
+            print(accuracy_2)
             print('%d:'%length,"check accuracy %g" % sess.run(accuracy_2))
