@@ -10,8 +10,8 @@ def common_transfer(pb_name,export_name):
 
     ret = rknn.load_tensorflow(
                                 tf_pb=pb_name,
-                                inputs=['x'],
-                                outputs=['hypothesis'],
+                                inputs=['test/x'],
+                                outputs=['test/hypothesis'],
                                 input_size_list=[[1,4]])
     if ret != 0:
         print('load_tensorflow error')
@@ -35,8 +35,8 @@ def quantify_transfer(pb_name,dataset_name,export_name):
     print('--> Loading model')
     ret = rknn.load_tensorflow(
                                 tf_pb=pb_name,
-                                inputs=['x'],
-                                outputs=['hypothesis'],
+                                inputs=['test/x'],
+                                outputs=['test/hypothesis'],
                                 input_size_list=[[1,4]])
     if ret != 0:
         print('load_tensorflow error')

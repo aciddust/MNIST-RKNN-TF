@@ -1,5 +1,5 @@
 node {
-  name: "x"
+  name: "test/x"
   op: "Placeholder"
   attr {
     key: "dtype"
@@ -17,7 +17,7 @@ node {
   }
 }
 node {
-  name: "y"
+  name: "test/y"
   op: "Placeholder"
   attr {
     key: "dtype"
@@ -35,7 +35,7 @@ node {
   }
 }
 node {
-  name: "random_uniform/shape"
+  name: "test/random_uniform/shape"
   op: "Const"
   attr {
     key: "dtype"
@@ -59,7 +59,7 @@ node {
   }
 }
 node {
-  name: "random_uniform/min"
+  name: "test/random_uniform/min"
   op: "Const"
   attr {
     key: "dtype"
@@ -80,7 +80,7 @@ node {
   }
 }
 node {
-  name: "random_uniform/max"
+  name: "test/random_uniform/max"
   op: "Const"
   attr {
     key: "dtype"
@@ -101,9 +101,9 @@ node {
   }
 }
 node {
-  name: "random_uniform/RandomUniform"
+  name: "test/random_uniform/RandomUniform"
   op: "RandomUniform"
-  input: "random_uniform/shape"
+  input: "test/random_uniform/shape"
   attr {
     key: "T"
     value {
@@ -130,10 +130,10 @@ node {
   }
 }
 node {
-  name: "random_uniform/sub"
+  name: "test/random_uniform/sub"
   op: "Sub"
-  input: "random_uniform/max"
-  input: "random_uniform/min"
+  input: "test/random_uniform/max"
+  input: "test/random_uniform/min"
   attr {
     key: "T"
     value {
@@ -142,10 +142,10 @@ node {
   }
 }
 node {
-  name: "random_uniform/mul"
+  name: "test/random_uniform/mul"
   op: "Mul"
-  input: "random_uniform/RandomUniform"
-  input: "random_uniform/sub"
+  input: "test/random_uniform/RandomUniform"
+  input: "test/random_uniform/sub"
   attr {
     key: "T"
     value {
@@ -154,10 +154,10 @@ node {
   }
 }
 node {
-  name: "random_uniform"
+  name: "test/random_uniform"
   op: "Add"
-  input: "random_uniform/mul"
-  input: "random_uniform/min"
+  input: "test/random_uniform/mul"
+  input: "test/random_uniform/min"
   attr {
     key: "T"
     value {
@@ -166,7 +166,7 @@ node {
   }
 }
 node {
-  name: "w"
+  name: "test/w"
   op: "VariableV2"
   attr {
     key: "container"
@@ -198,10 +198,10 @@ node {
   }
 }
 node {
-  name: "w/Assign"
+  name: "test/w/Assign"
   op: "Assign"
-  input: "w"
-  input: "random_uniform"
+  input: "test/w"
+  input: "test/random_uniform"
   attr {
     key: "T"
     value {
@@ -212,7 +212,7 @@ node {
     key: "_class"
     value {
       list {
-        s: "loc:@w"
+        s: "loc:@test/w"
       }
     }
   }
@@ -230,9 +230,9 @@ node {
   }
 }
 node {
-  name: "w/read"
+  name: "test/w/read"
   op: "Identity"
-  input: "w"
+  input: "test/w"
   attr {
     key: "T"
     value {
@@ -243,13 +243,13 @@ node {
     key: "_class"
     value {
       list {
-        s: "loc:@w"
+        s: "loc:@test/w"
       }
     }
   }
 }
 node {
-  name: "random_uniform_1/shape"
+  name: "test/random_uniform_1/shape"
   op: "Const"
   attr {
     key: "dtype"
@@ -273,7 +273,7 @@ node {
   }
 }
 node {
-  name: "random_uniform_1/min"
+  name: "test/random_uniform_1/min"
   op: "Const"
   attr {
     key: "dtype"
@@ -294,7 +294,7 @@ node {
   }
 }
 node {
-  name: "random_uniform_1/max"
+  name: "test/random_uniform_1/max"
   op: "Const"
   attr {
     key: "dtype"
@@ -315,9 +315,9 @@ node {
   }
 }
 node {
-  name: "random_uniform_1/RandomUniform"
+  name: "test/random_uniform_1/RandomUniform"
   op: "RandomUniform"
-  input: "random_uniform_1/shape"
+  input: "test/random_uniform_1/shape"
   attr {
     key: "T"
     value {
@@ -344,10 +344,10 @@ node {
   }
 }
 node {
-  name: "random_uniform_1/sub"
+  name: "test/random_uniform_1/sub"
   op: "Sub"
-  input: "random_uniform_1/max"
-  input: "random_uniform_1/min"
+  input: "test/random_uniform_1/max"
+  input: "test/random_uniform_1/min"
   attr {
     key: "T"
     value {
@@ -356,10 +356,10 @@ node {
   }
 }
 node {
-  name: "random_uniform_1/mul"
+  name: "test/random_uniform_1/mul"
   op: "Mul"
-  input: "random_uniform_1/RandomUniform"
-  input: "random_uniform_1/sub"
+  input: "test/random_uniform_1/RandomUniform"
+  input: "test/random_uniform_1/sub"
   attr {
     key: "T"
     value {
@@ -368,10 +368,10 @@ node {
   }
 }
 node {
-  name: "random_uniform_1"
+  name: "test/random_uniform_1"
   op: "Add"
-  input: "random_uniform_1/mul"
-  input: "random_uniform_1/min"
+  input: "test/random_uniform_1/mul"
+  input: "test/random_uniform_1/min"
   attr {
     key: "T"
     value {
@@ -380,7 +380,7 @@ node {
   }
 }
 node {
-  name: "b"
+  name: "test/b"
   op: "VariableV2"
   attr {
     key: "container"
@@ -412,10 +412,10 @@ node {
   }
 }
 node {
-  name: "b/Assign"
+  name: "test/b/Assign"
   op: "Assign"
-  input: "b"
-  input: "random_uniform_1"
+  input: "test/b"
+  input: "test/random_uniform_1"
   attr {
     key: "T"
     value {
@@ -426,7 +426,7 @@ node {
     key: "_class"
     value {
       list {
-        s: "loc:@b"
+        s: "loc:@test/b"
       }
     }
   }
@@ -444,9 +444,9 @@ node {
   }
 }
 node {
-  name: "b/read"
+  name: "test/b/read"
   op: "Identity"
-  input: "b"
+  input: "test/b"
   attr {
     key: "T"
     value {
@@ -457,16 +457,16 @@ node {
     key: "_class"
     value {
       list {
-        s: "loc:@b"
+        s: "loc:@test/b"
       }
     }
   }
 }
 node {
-  name: "mul"
+  name: "test/mul"
   op: "Mul"
-  input: "w/read"
-  input: "x"
+  input: "test/w/read"
+  input: "test/x"
   attr {
     key: "T"
     value {
@@ -475,10 +475,10 @@ node {
   }
 }
 node {
-  name: "hypothesis"
+  name: "test/hypothesis"
   op: "Add"
-  input: "mul"
-  input: "b/read"
+  input: "test/mul"
+  input: "test/b/read"
   attr {
     key: "T"
     value {
@@ -487,10 +487,10 @@ node {
   }
 }
 node {
-  name: "sub"
+  name: "test/sub"
   op: "Sub"
-  input: "hypothesis"
-  input: "y"
+  input: "test/hypothesis"
+  input: "test/y"
   attr {
     key: "T"
     value {
@@ -499,9 +499,9 @@ node {
   }
 }
 node {
-  name: "Square"
+  name: "test/Square"
   op: "Square"
-  input: "sub"
+  input: "test/sub"
   attr {
     key: "T"
     value {
@@ -510,9 +510,9 @@ node {
   }
 }
 node {
-  name: "Rank"
+  name: "test/Rank"
   op: "Rank"
-  input: "Square"
+  input: "test/Square"
   attr {
     key: "T"
     value {
@@ -521,7 +521,7 @@ node {
   }
 }
 node {
-  name: "range/start"
+  name: "test/range/start"
   op: "Const"
   attr {
     key: "dtype"
@@ -542,7 +542,7 @@ node {
   }
 }
 node {
-  name: "range/delta"
+  name: "test/range/delta"
   op: "Const"
   attr {
     key: "dtype"
@@ -563,11 +563,11 @@ node {
   }
 }
 node {
-  name: "range"
+  name: "test/range"
   op: "Range"
-  input: "range/start"
-  input: "Rank"
-  input: "range/delta"
+  input: "test/range/start"
+  input: "test/Rank"
+  input: "test/range/delta"
   attr {
     key: "Tidx"
     value {
@@ -576,10 +576,10 @@ node {
   }
 }
 node {
-  name: "cost"
+  name: "test/cost"
   op: "Mean"
-  input: "Square"
-  input: "range"
+  input: "test/Square"
+  input: "test/range"
   attr {
     key: "T"
     value {
@@ -600,7 +600,7 @@ node {
   }
 }
 node {
-  name: "Variable/initial_value"
+  name: "test/Variable/initial_value"
   op: "Const"
   attr {
     key: "dtype"
@@ -621,7 +621,7 @@ node {
   }
 }
 node {
-  name: "Variable"
+  name: "test/Variable"
   op: "VariableV2"
   attr {
     key: "container"
@@ -650,10 +650,10 @@ node {
   }
 }
 node {
-  name: "Variable/Assign"
+  name: "test/Variable/Assign"
   op: "Assign"
-  input: "Variable"
-  input: "Variable/initial_value"
+  input: "test/Variable"
+  input: "test/Variable/initial_value"
   attr {
     key: "T"
     value {
@@ -664,7 +664,7 @@ node {
     key: "_class"
     value {
       list {
-        s: "loc:@Variable"
+        s: "loc:@test/Variable"
       }
     }
   }
@@ -682,9 +682,9 @@ node {
   }
 }
 node {
-  name: "Variable/read"
+  name: "test/Variable/read"
   op: "Identity"
-  input: "Variable"
+  input: "test/Variable"
   attr {
     key: "T"
     value {
@@ -695,13 +695,13 @@ node {
     key: "_class"
     value {
       list {
-        s: "loc:@Variable"
+        s: "loc:@test/Variable"
       }
     }
   }
 }
 node {
-  name: "gradients/Shape"
+  name: "test/gradients/Shape"
   op: "Const"
   attr {
     key: "dtype"
@@ -723,7 +723,7 @@ node {
   }
 }
 node {
-  name: "gradients/grad_ys_0"
+  name: "test/gradients/grad_ys_0"
   op: "Const"
   attr {
     key: "dtype"
@@ -744,10 +744,10 @@ node {
   }
 }
 node {
-  name: "gradients/Fill"
+  name: "test/gradients/Fill"
   op: "Fill"
-  input: "gradients/Shape"
-  input: "gradients/grad_ys_0"
+  input: "test/gradients/Shape"
+  input: "test/gradients/grad_ys_0"
   attr {
     key: "T"
     value {
@@ -762,9 +762,9 @@ node {
   }
 }
 node {
-  name: "gradients/cost_grad/Shape"
+  name: "test/gradients/test/cost_grad/Shape"
   op: "Shape"
-  input: "Square"
+  input: "test/Square"
   attr {
     key: "T"
     value {
@@ -779,9 +779,9 @@ node {
   }
 }
 node {
-  name: "gradients/cost_grad/Size"
+  name: "test/gradients/test/cost_grad/Size"
   op: "Size"
-  input: "gradients/cost_grad/Shape"
+  input: "test/gradients/test/cost_grad/Shape"
   attr {
     key: "T"
     value {
@@ -792,7 +792,7 @@ node {
     key: "_class"
     value {
       list {
-        s: "loc:@gradients/cost_grad/Shape"
+        s: "loc:@test/gradients/test/cost_grad/Shape"
       }
     }
   }
@@ -804,10 +804,10 @@ node {
   }
 }
 node {
-  name: "gradients/cost_grad/add"
+  name: "test/gradients/test/cost_grad/add"
   op: "Add"
-  input: "range"
-  input: "gradients/cost_grad/Size"
+  input: "test/range"
+  input: "test/gradients/test/cost_grad/Size"
   attr {
     key: "T"
     value {
@@ -818,16 +818,16 @@ node {
     key: "_class"
     value {
       list {
-        s: "loc:@gradients/cost_grad/Shape"
+        s: "loc:@test/gradients/test/cost_grad/Shape"
       }
     }
   }
 }
 node {
-  name: "gradients/cost_grad/mod"
+  name: "test/gradients/test/cost_grad/mod"
   op: "FloorMod"
-  input: "gradients/cost_grad/add"
-  input: "gradients/cost_grad/Size"
+  input: "test/gradients/test/cost_grad/add"
+  input: "test/gradients/test/cost_grad/Size"
   attr {
     key: "T"
     value {
@@ -838,15 +838,15 @@ node {
     key: "_class"
     value {
       list {
-        s: "loc:@gradients/cost_grad/Shape"
+        s: "loc:@test/gradients/test/cost_grad/Shape"
       }
     }
   }
 }
 node {
-  name: "gradients/cost_grad/Shape_1"
+  name: "test/gradients/test/cost_grad/Shape_1"
   op: "Shape"
-  input: "gradients/cost_grad/mod"
+  input: "test/gradients/test/cost_grad/mod"
   attr {
     key: "T"
     value {
@@ -857,7 +857,7 @@ node {
     key: "_class"
     value {
       list {
-        s: "loc:@gradients/cost_grad/Shape"
+        s: "loc:@test/gradients/test/cost_grad/Shape"
       }
     }
   }
@@ -869,13 +869,13 @@ node {
   }
 }
 node {
-  name: "gradients/cost_grad/range/start"
+  name: "test/gradients/test/cost_grad/range/start"
   op: "Const"
   attr {
     key: "_class"
     value {
       list {
-        s: "loc:@gradients/cost_grad/Shape"
+        s: "loc:@test/gradients/test/cost_grad/Shape"
       }
     }
   }
@@ -898,13 +898,13 @@ node {
   }
 }
 node {
-  name: "gradients/cost_grad/range/delta"
+  name: "test/gradients/test/cost_grad/range/delta"
   op: "Const"
   attr {
     key: "_class"
     value {
       list {
-        s: "loc:@gradients/cost_grad/Shape"
+        s: "loc:@test/gradients/test/cost_grad/Shape"
       }
     }
   }
@@ -927,11 +927,11 @@ node {
   }
 }
 node {
-  name: "gradients/cost_grad/range"
+  name: "test/gradients/test/cost_grad/range"
   op: "Range"
-  input: "gradients/cost_grad/range/start"
-  input: "gradients/cost_grad/Size"
-  input: "gradients/cost_grad/range/delta"
+  input: "test/gradients/test/cost_grad/range/start"
+  input: "test/gradients/test/cost_grad/Size"
+  input: "test/gradients/test/cost_grad/range/delta"
   attr {
     key: "Tidx"
     value {
@@ -942,19 +942,19 @@ node {
     key: "_class"
     value {
       list {
-        s: "loc:@gradients/cost_grad/Shape"
+        s: "loc:@test/gradients/test/cost_grad/Shape"
       }
     }
   }
 }
 node {
-  name: "gradients/cost_grad/Fill/value"
+  name: "test/gradients/test/cost_grad/Fill/value"
   op: "Const"
   attr {
     key: "_class"
     value {
       list {
-        s: "loc:@gradients/cost_grad/Shape"
+        s: "loc:@test/gradients/test/cost_grad/Shape"
       }
     }
   }
@@ -977,10 +977,10 @@ node {
   }
 }
 node {
-  name: "gradients/cost_grad/Fill"
+  name: "test/gradients/test/cost_grad/Fill"
   op: "Fill"
-  input: "gradients/cost_grad/Shape_1"
-  input: "gradients/cost_grad/Fill/value"
+  input: "test/gradients/test/cost_grad/Shape_1"
+  input: "test/gradients/test/cost_grad/Fill/value"
   attr {
     key: "T"
     value {
@@ -991,7 +991,7 @@ node {
     key: "_class"
     value {
       list {
-        s: "loc:@gradients/cost_grad/Shape"
+        s: "loc:@test/gradients/test/cost_grad/Shape"
       }
     }
   }
@@ -1003,12 +1003,12 @@ node {
   }
 }
 node {
-  name: "gradients/cost_grad/DynamicStitch"
+  name: "test/gradients/test/cost_grad/DynamicStitch"
   op: "DynamicStitch"
-  input: "gradients/cost_grad/range"
-  input: "gradients/cost_grad/mod"
-  input: "gradients/cost_grad/Shape"
-  input: "gradients/cost_grad/Fill"
+  input: "test/gradients/test/cost_grad/range"
+  input: "test/gradients/test/cost_grad/mod"
+  input: "test/gradients/test/cost_grad/Shape"
+  input: "test/gradients/test/cost_grad/Fill"
   attr {
     key: "N"
     value {
@@ -1025,19 +1025,19 @@ node {
     key: "_class"
     value {
       list {
-        s: "loc:@gradients/cost_grad/Shape"
+        s: "loc:@test/gradients/test/cost_grad/Shape"
       }
     }
   }
 }
 node {
-  name: "gradients/cost_grad/Maximum/y"
+  name: "test/gradients/test/cost_grad/Maximum/y"
   op: "Const"
   attr {
     key: "_class"
     value {
       list {
-        s: "loc:@gradients/cost_grad/Shape"
+        s: "loc:@test/gradients/test/cost_grad/Shape"
       }
     }
   }
@@ -1060,10 +1060,10 @@ node {
   }
 }
 node {
-  name: "gradients/cost_grad/Maximum"
+  name: "test/gradients/test/cost_grad/Maximum"
   op: "Maximum"
-  input: "gradients/cost_grad/DynamicStitch"
-  input: "gradients/cost_grad/Maximum/y"
+  input: "test/gradients/test/cost_grad/DynamicStitch"
+  input: "test/gradients/test/cost_grad/Maximum/y"
   attr {
     key: "T"
     value {
@@ -1074,16 +1074,16 @@ node {
     key: "_class"
     value {
       list {
-        s: "loc:@gradients/cost_grad/Shape"
+        s: "loc:@test/gradients/test/cost_grad/Shape"
       }
     }
   }
 }
 node {
-  name: "gradients/cost_grad/floordiv"
+  name: "test/gradients/test/cost_grad/floordiv"
   op: "FloorDiv"
-  input: "gradients/cost_grad/Shape"
-  input: "gradients/cost_grad/Maximum"
+  input: "test/gradients/test/cost_grad/Shape"
+  input: "test/gradients/test/cost_grad/Maximum"
   attr {
     key: "T"
     value {
@@ -1094,16 +1094,16 @@ node {
     key: "_class"
     value {
       list {
-        s: "loc:@gradients/cost_grad/Shape"
+        s: "loc:@test/gradients/test/cost_grad/Shape"
       }
     }
   }
 }
 node {
-  name: "gradients/cost_grad/Reshape"
+  name: "test/gradients/test/cost_grad/Reshape"
   op: "Reshape"
-  input: "gradients/Fill"
-  input: "gradients/cost_grad/DynamicStitch"
+  input: "test/gradients/Fill"
+  input: "test/gradients/test/cost_grad/DynamicStitch"
   attr {
     key: "T"
     value {
@@ -1118,10 +1118,10 @@ node {
   }
 }
 node {
-  name: "gradients/cost_grad/Tile"
+  name: "test/gradients/test/cost_grad/Tile"
   op: "Tile"
-  input: "gradients/cost_grad/Reshape"
-  input: "gradients/cost_grad/floordiv"
+  input: "test/gradients/test/cost_grad/Reshape"
+  input: "test/gradients/test/cost_grad/floordiv"
   attr {
     key: "T"
     value {
@@ -1136,9 +1136,9 @@ node {
   }
 }
 node {
-  name: "gradients/cost_grad/Shape_2"
+  name: "test/gradients/test/cost_grad/Shape_2"
   op: "Shape"
-  input: "Square"
+  input: "test/Square"
   attr {
     key: "T"
     value {
@@ -1153,7 +1153,7 @@ node {
   }
 }
 node {
-  name: "gradients/cost_grad/Shape_3"
+  name: "test/gradients/test/cost_grad/Shape_3"
   op: "Const"
   attr {
     key: "dtype"
@@ -1175,55 +1175,7 @@ node {
   }
 }
 node {
-  name: "gradients/cost_grad/Const"
-  op: "Const"
-  attr {
-    key: "dtype"
-    value {
-      type: DT_INT32
-    }
-  }
-  attr {
-    key: "value"
-    value {
-      tensor {
-        dtype: DT_INT32
-        tensor_shape {
-          dim {
-            size: 1
-          }
-        }
-        int_val: 0
-      }
-    }
-  }
-}
-node {
-  name: "gradients/cost_grad/Prod"
-  op: "Prod"
-  input: "gradients/cost_grad/Shape_2"
-  input: "gradients/cost_grad/Const"
-  attr {
-    key: "T"
-    value {
-      type: DT_INT32
-    }
-  }
-  attr {
-    key: "Tidx"
-    value {
-      type: DT_INT32
-    }
-  }
-  attr {
-    key: "keep_dims"
-    value {
-      b: false
-    }
-  }
-}
-node {
-  name: "gradients/cost_grad/Const_1"
+  name: "test/gradients/test/cost_grad/Const"
   op: "Const"
   attr {
     key: "dtype"
@@ -1247,10 +1199,10 @@ node {
   }
 }
 node {
-  name: "gradients/cost_grad/Prod_1"
+  name: "test/gradients/test/cost_grad/Prod"
   op: "Prod"
-  input: "gradients/cost_grad/Shape_3"
-  input: "gradients/cost_grad/Const_1"
+  input: "test/gradients/test/cost_grad/Shape_2"
+  input: "test/gradients/test/cost_grad/Const"
   attr {
     key: "T"
     value {
@@ -1271,7 +1223,55 @@ node {
   }
 }
 node {
-  name: "gradients/cost_grad/Maximum_1/y"
+  name: "test/gradients/test/cost_grad/Const_1"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 0
+      }
+    }
+  }
+}
+node {
+  name: "test/gradients/test/cost_grad/Prod_1"
+  op: "Prod"
+  input: "test/gradients/test/cost_grad/Shape_3"
+  input: "test/gradients/test/cost_grad/Const_1"
+  attr {
+    key: "T"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "Tidx"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "keep_dims"
+    value {
+      b: false
+    }
+  }
+}
+node {
+  name: "test/gradients/test/cost_grad/Maximum_1/y"
   op: "Const"
   attr {
     key: "dtype"
@@ -1292,10 +1292,10 @@ node {
   }
 }
 node {
-  name: "gradients/cost_grad/Maximum_1"
+  name: "test/gradients/test/cost_grad/Maximum_1"
   op: "Maximum"
-  input: "gradients/cost_grad/Prod_1"
-  input: "gradients/cost_grad/Maximum_1/y"
+  input: "test/gradients/test/cost_grad/Prod_1"
+  input: "test/gradients/test/cost_grad/Maximum_1/y"
   attr {
     key: "T"
     value {
@@ -1304,10 +1304,10 @@ node {
   }
 }
 node {
-  name: "gradients/cost_grad/floordiv_1"
+  name: "test/gradients/test/cost_grad/floordiv_1"
   op: "FloorDiv"
-  input: "gradients/cost_grad/Prod"
-  input: "gradients/cost_grad/Maximum_1"
+  input: "test/gradients/test/cost_grad/Prod"
+  input: "test/gradients/test/cost_grad/Maximum_1"
   attr {
     key: "T"
     value {
@@ -1316,9 +1316,9 @@ node {
   }
 }
 node {
-  name: "gradients/cost_grad/Cast"
+  name: "test/gradients/test/cost_grad/Cast"
   op: "Cast"
-  input: "gradients/cost_grad/floordiv_1"
+  input: "test/gradients/test/cost_grad/floordiv_1"
   attr {
     key: "DstT"
     value {
@@ -1339,10 +1339,10 @@ node {
   }
 }
 node {
-  name: "gradients/cost_grad/truediv"
+  name: "test/gradients/test/cost_grad/truediv"
   op: "RealDiv"
-  input: "gradients/cost_grad/Tile"
-  input: "gradients/cost_grad/Cast"
+  input: "test/gradients/test/cost_grad/Tile"
+  input: "test/gradients/test/cost_grad/Cast"
   attr {
     key: "T"
     value {
@@ -1351,9 +1351,9 @@ node {
   }
 }
 node {
-  name: "gradients/Square_grad/Const"
+  name: "test/gradients/test/Square_grad/Const"
   op: "Const"
-  input: "^gradients/cost_grad/truediv"
+  input: "^test/gradients/test/cost_grad/truediv"
   attr {
     key: "dtype"
     value {
@@ -1373,10 +1373,10 @@ node {
   }
 }
 node {
-  name: "gradients/Square_grad/Mul"
+  name: "test/gradients/test/Square_grad/Mul"
   op: "Mul"
-  input: "sub"
-  input: "gradients/Square_grad/Const"
+  input: "test/sub"
+  input: "test/gradients/test/Square_grad/Const"
   attr {
     key: "T"
     value {
@@ -1385,10 +1385,10 @@ node {
   }
 }
 node {
-  name: "gradients/Square_grad/Mul_1"
+  name: "test/gradients/test/Square_grad/Mul_1"
   op: "Mul"
-  input: "gradients/cost_grad/truediv"
-  input: "gradients/Square_grad/Mul"
+  input: "test/gradients/test/cost_grad/truediv"
+  input: "test/gradients/test/Square_grad/Mul"
   attr {
     key: "T"
     value {
@@ -1397,9 +1397,9 @@ node {
   }
 }
 node {
-  name: "gradients/sub_grad/Shape"
+  name: "test/gradients/test/sub_grad/Shape"
   op: "Shape"
-  input: "hypothesis"
+  input: "test/hypothesis"
   attr {
     key: "T"
     value {
@@ -1414,9 +1414,9 @@ node {
   }
 }
 node {
-  name: "gradients/sub_grad/Shape_1"
+  name: "test/gradients/test/sub_grad/Shape_1"
   op: "Shape"
-  input: "y"
+  input: "test/y"
   attr {
     key: "T"
     value {
@@ -1431,10 +1431,10 @@ node {
   }
 }
 node {
-  name: "gradients/sub_grad/BroadcastGradientArgs"
+  name: "test/gradients/test/sub_grad/BroadcastGradientArgs"
   op: "BroadcastGradientArgs"
-  input: "gradients/sub_grad/Shape"
-  input: "gradients/sub_grad/Shape_1"
+  input: "test/gradients/test/sub_grad/Shape"
+  input: "test/gradients/test/sub_grad/Shape_1"
   attr {
     key: "T"
     value {
@@ -1443,10 +1443,10 @@ node {
   }
 }
 node {
-  name: "gradients/sub_grad/Sum"
+  name: "test/gradients/test/sub_grad/Sum"
   op: "Sum"
-  input: "gradients/Square_grad/Mul_1"
-  input: "gradients/sub_grad/BroadcastGradientArgs"
+  input: "test/gradients/test/Square_grad/Mul_1"
+  input: "test/gradients/test/sub_grad/BroadcastGradientArgs"
   attr {
     key: "T"
     value {
@@ -1467,10 +1467,10 @@ node {
   }
 }
 node {
-  name: "gradients/sub_grad/Reshape"
+  name: "test/gradients/test/sub_grad/Reshape"
   op: "Reshape"
-  input: "gradients/sub_grad/Sum"
-  input: "gradients/sub_grad/Shape"
+  input: "test/gradients/test/sub_grad/Sum"
+  input: "test/gradients/test/sub_grad/Shape"
   attr {
     key: "T"
     value {
@@ -1485,10 +1485,10 @@ node {
   }
 }
 node {
-  name: "gradients/sub_grad/Sum_1"
+  name: "test/gradients/test/sub_grad/Sum_1"
   op: "Sum"
-  input: "gradients/Square_grad/Mul_1"
-  input: "gradients/sub_grad/BroadcastGradientArgs:1"
+  input: "test/gradients/test/Square_grad/Mul_1"
+  input: "test/gradients/test/sub_grad/BroadcastGradientArgs:1"
   attr {
     key: "T"
     value {
@@ -1509,9 +1509,9 @@ node {
   }
 }
 node {
-  name: "gradients/sub_grad/Neg"
+  name: "test/gradients/test/sub_grad/Neg"
   op: "Neg"
-  input: "gradients/sub_grad/Sum_1"
+  input: "test/gradients/test/sub_grad/Sum_1"
   attr {
     key: "T"
     value {
@@ -1520,10 +1520,10 @@ node {
   }
 }
 node {
-  name: "gradients/sub_grad/Reshape_1"
+  name: "test/gradients/test/sub_grad/Reshape_1"
   op: "Reshape"
-  input: "gradients/sub_grad/Neg"
-  input: "gradients/sub_grad/Shape_1"
+  input: "test/gradients/test/sub_grad/Neg"
+  input: "test/gradients/test/sub_grad/Shape_1"
   attr {
     key: "T"
     value {
@@ -1538,16 +1538,16 @@ node {
   }
 }
 node {
-  name: "gradients/sub_grad/tuple/group_deps"
+  name: "test/gradients/test/sub_grad/tuple/group_deps"
   op: "NoOp"
-  input: "^gradients/sub_grad/Reshape"
-  input: "^gradients/sub_grad/Reshape_1"
+  input: "^test/gradients/test/sub_grad/Reshape"
+  input: "^test/gradients/test/sub_grad/Reshape_1"
 }
 node {
-  name: "gradients/sub_grad/tuple/control_dependency"
+  name: "test/gradients/test/sub_grad/tuple/control_dependency"
   op: "Identity"
-  input: "gradients/sub_grad/Reshape"
-  input: "^gradients/sub_grad/tuple/group_deps"
+  input: "test/gradients/test/sub_grad/Reshape"
+  input: "^test/gradients/test/sub_grad/tuple/group_deps"
   attr {
     key: "T"
     value {
@@ -1558,16 +1558,16 @@ node {
     key: "_class"
     value {
       list {
-        s: "loc:@gradients/sub_grad/Reshape"
+        s: "loc:@test/gradients/test/sub_grad/Reshape"
       }
     }
   }
 }
 node {
-  name: "gradients/sub_grad/tuple/control_dependency_1"
+  name: "test/gradients/test/sub_grad/tuple/control_dependency_1"
   op: "Identity"
-  input: "gradients/sub_grad/Reshape_1"
-  input: "^gradients/sub_grad/tuple/group_deps"
+  input: "test/gradients/test/sub_grad/Reshape_1"
+  input: "^test/gradients/test/sub_grad/tuple/group_deps"
   attr {
     key: "T"
     value {
@@ -1578,15 +1578,15 @@ node {
     key: "_class"
     value {
       list {
-        s: "loc:@gradients/sub_grad/Reshape_1"
+        s: "loc:@test/gradients/test/sub_grad/Reshape_1"
       }
     }
   }
 }
 node {
-  name: "gradients/hypothesis_grad/Shape"
+  name: "test/gradients/test/hypothesis_grad/Shape"
   op: "Shape"
-  input: "mul"
+  input: "test/mul"
   attr {
     key: "T"
     value {
@@ -1601,7 +1601,7 @@ node {
   }
 }
 node {
-  name: "gradients/hypothesis_grad/Shape_1"
+  name: "test/gradients/test/hypothesis_grad/Shape_1"
   op: "Const"
   attr {
     key: "dtype"
@@ -1625,10 +1625,10 @@ node {
   }
 }
 node {
-  name: "gradients/hypothesis_grad/BroadcastGradientArgs"
+  name: "test/gradients/test/hypothesis_grad/BroadcastGradientArgs"
   op: "BroadcastGradientArgs"
-  input: "gradients/hypothesis_grad/Shape"
-  input: "gradients/hypothesis_grad/Shape_1"
+  input: "test/gradients/test/hypothesis_grad/Shape"
+  input: "test/gradients/test/hypothesis_grad/Shape_1"
   attr {
     key: "T"
     value {
@@ -1637,10 +1637,10 @@ node {
   }
 }
 node {
-  name: "gradients/hypothesis_grad/Sum"
+  name: "test/gradients/test/hypothesis_grad/Sum"
   op: "Sum"
-  input: "gradients/sub_grad/tuple/control_dependency"
-  input: "gradients/hypothesis_grad/BroadcastGradientArgs"
+  input: "test/gradients/test/sub_grad/tuple/control_dependency"
+  input: "test/gradients/test/hypothesis_grad/BroadcastGradientArgs"
   attr {
     key: "T"
     value {
@@ -1661,10 +1661,10 @@ node {
   }
 }
 node {
-  name: "gradients/hypothesis_grad/Reshape"
+  name: "test/gradients/test/hypothesis_grad/Reshape"
   op: "Reshape"
-  input: "gradients/hypothesis_grad/Sum"
-  input: "gradients/hypothesis_grad/Shape"
+  input: "test/gradients/test/hypothesis_grad/Sum"
+  input: "test/gradients/test/hypothesis_grad/Shape"
   attr {
     key: "T"
     value {
@@ -1679,10 +1679,10 @@ node {
   }
 }
 node {
-  name: "gradients/hypothesis_grad/Sum_1"
+  name: "test/gradients/test/hypothesis_grad/Sum_1"
   op: "Sum"
-  input: "gradients/sub_grad/tuple/control_dependency"
-  input: "gradients/hypothesis_grad/BroadcastGradientArgs:1"
+  input: "test/gradients/test/sub_grad/tuple/control_dependency"
+  input: "test/gradients/test/hypothesis_grad/BroadcastGradientArgs:1"
   attr {
     key: "T"
     value {
@@ -1703,10 +1703,10 @@ node {
   }
 }
 node {
-  name: "gradients/hypothesis_grad/Reshape_1"
+  name: "test/gradients/test/hypothesis_grad/Reshape_1"
   op: "Reshape"
-  input: "gradients/hypothesis_grad/Sum_1"
-  input: "gradients/hypothesis_grad/Shape_1"
+  input: "test/gradients/test/hypothesis_grad/Sum_1"
+  input: "test/gradients/test/hypothesis_grad/Shape_1"
   attr {
     key: "T"
     value {
@@ -1721,16 +1721,16 @@ node {
   }
 }
 node {
-  name: "gradients/hypothesis_grad/tuple/group_deps"
+  name: "test/gradients/test/hypothesis_grad/tuple/group_deps"
   op: "NoOp"
-  input: "^gradients/hypothesis_grad/Reshape"
-  input: "^gradients/hypothesis_grad/Reshape_1"
+  input: "^test/gradients/test/hypothesis_grad/Reshape"
+  input: "^test/gradients/test/hypothesis_grad/Reshape_1"
 }
 node {
-  name: "gradients/hypothesis_grad/tuple/control_dependency"
+  name: "test/gradients/test/hypothesis_grad/tuple/control_dependency"
   op: "Identity"
-  input: "gradients/hypothesis_grad/Reshape"
-  input: "^gradients/hypothesis_grad/tuple/group_deps"
+  input: "test/gradients/test/hypothesis_grad/Reshape"
+  input: "^test/gradients/test/hypothesis_grad/tuple/group_deps"
   attr {
     key: "T"
     value {
@@ -1741,16 +1741,16 @@ node {
     key: "_class"
     value {
       list {
-        s: "loc:@gradients/hypothesis_grad/Reshape"
+        s: "loc:@test/gradients/test/hypothesis_grad/Reshape"
       }
     }
   }
 }
 node {
-  name: "gradients/hypothesis_grad/tuple/control_dependency_1"
+  name: "test/gradients/test/hypothesis_grad/tuple/control_dependency_1"
   op: "Identity"
-  input: "gradients/hypothesis_grad/Reshape_1"
-  input: "^gradients/hypothesis_grad/tuple/group_deps"
+  input: "test/gradients/test/hypothesis_grad/Reshape_1"
+  input: "^test/gradients/test/hypothesis_grad/tuple/group_deps"
   attr {
     key: "T"
     value {
@@ -1761,13 +1761,13 @@ node {
     key: "_class"
     value {
       list {
-        s: "loc:@gradients/hypothesis_grad/Reshape_1"
+        s: "loc:@test/gradients/test/hypothesis_grad/Reshape_1"
       }
     }
   }
 }
 node {
-  name: "gradients/mul_grad/Shape"
+  name: "test/gradients/test/mul_grad/Shape"
   op: "Const"
   attr {
     key: "dtype"
@@ -1791,9 +1791,9 @@ node {
   }
 }
 node {
-  name: "gradients/mul_grad/Shape_1"
+  name: "test/gradients/test/mul_grad/Shape_1"
   op: "Shape"
-  input: "x"
+  input: "test/x"
   attr {
     key: "T"
     value {
@@ -1808,10 +1808,10 @@ node {
   }
 }
 node {
-  name: "gradients/mul_grad/BroadcastGradientArgs"
+  name: "test/gradients/test/mul_grad/BroadcastGradientArgs"
   op: "BroadcastGradientArgs"
-  input: "gradients/mul_grad/Shape"
-  input: "gradients/mul_grad/Shape_1"
+  input: "test/gradients/test/mul_grad/Shape"
+  input: "test/gradients/test/mul_grad/Shape_1"
   attr {
     key: "T"
     value {
@@ -1820,10 +1820,10 @@ node {
   }
 }
 node {
-  name: "gradients/mul_grad/Mul"
+  name: "test/gradients/test/mul_grad/Mul"
   op: "Mul"
-  input: "gradients/hypothesis_grad/tuple/control_dependency"
-  input: "x"
+  input: "test/gradients/test/hypothesis_grad/tuple/control_dependency"
+  input: "test/x"
   attr {
     key: "T"
     value {
@@ -1832,10 +1832,10 @@ node {
   }
 }
 node {
-  name: "gradients/mul_grad/Sum"
+  name: "test/gradients/test/mul_grad/Sum"
   op: "Sum"
-  input: "gradients/mul_grad/Mul"
-  input: "gradients/mul_grad/BroadcastGradientArgs"
+  input: "test/gradients/test/mul_grad/Mul"
+  input: "test/gradients/test/mul_grad/BroadcastGradientArgs"
   attr {
     key: "T"
     value {
@@ -1856,10 +1856,10 @@ node {
   }
 }
 node {
-  name: "gradients/mul_grad/Reshape"
+  name: "test/gradients/test/mul_grad/Reshape"
   op: "Reshape"
-  input: "gradients/mul_grad/Sum"
-  input: "gradients/mul_grad/Shape"
+  input: "test/gradients/test/mul_grad/Sum"
+  input: "test/gradients/test/mul_grad/Shape"
   attr {
     key: "T"
     value {
@@ -1874,10 +1874,10 @@ node {
   }
 }
 node {
-  name: "gradients/mul_grad/Mul_1"
+  name: "test/gradients/test/mul_grad/Mul_1"
   op: "Mul"
-  input: "w/read"
-  input: "gradients/hypothesis_grad/tuple/control_dependency"
+  input: "test/w/read"
+  input: "test/gradients/test/hypothesis_grad/tuple/control_dependency"
   attr {
     key: "T"
     value {
@@ -1886,10 +1886,10 @@ node {
   }
 }
 node {
-  name: "gradients/mul_grad/Sum_1"
+  name: "test/gradients/test/mul_grad/Sum_1"
   op: "Sum"
-  input: "gradients/mul_grad/Mul_1"
-  input: "gradients/mul_grad/BroadcastGradientArgs:1"
+  input: "test/gradients/test/mul_grad/Mul_1"
+  input: "test/gradients/test/mul_grad/BroadcastGradientArgs:1"
   attr {
     key: "T"
     value {
@@ -1910,10 +1910,10 @@ node {
   }
 }
 node {
-  name: "gradients/mul_grad/Reshape_1"
+  name: "test/gradients/test/mul_grad/Reshape_1"
   op: "Reshape"
-  input: "gradients/mul_grad/Sum_1"
-  input: "gradients/mul_grad/Shape_1"
+  input: "test/gradients/test/mul_grad/Sum_1"
+  input: "test/gradients/test/mul_grad/Shape_1"
   attr {
     key: "T"
     value {
@@ -1928,16 +1928,16 @@ node {
   }
 }
 node {
-  name: "gradients/mul_grad/tuple/group_deps"
+  name: "test/gradients/test/mul_grad/tuple/group_deps"
   op: "NoOp"
-  input: "^gradients/mul_grad/Reshape"
-  input: "^gradients/mul_grad/Reshape_1"
+  input: "^test/gradients/test/mul_grad/Reshape"
+  input: "^test/gradients/test/mul_grad/Reshape_1"
 }
 node {
-  name: "gradients/mul_grad/tuple/control_dependency"
+  name: "test/gradients/test/mul_grad/tuple/control_dependency"
   op: "Identity"
-  input: "gradients/mul_grad/Reshape"
-  input: "^gradients/mul_grad/tuple/group_deps"
+  input: "test/gradients/test/mul_grad/Reshape"
+  input: "^test/gradients/test/mul_grad/tuple/group_deps"
   attr {
     key: "T"
     value {
@@ -1948,16 +1948,16 @@ node {
     key: "_class"
     value {
       list {
-        s: "loc:@gradients/mul_grad/Reshape"
+        s: "loc:@test/gradients/test/mul_grad/Reshape"
       }
     }
   }
 }
 node {
-  name: "gradients/mul_grad/tuple/control_dependency_1"
+  name: "test/gradients/test/mul_grad/tuple/control_dependency_1"
   op: "Identity"
-  input: "gradients/mul_grad/Reshape_1"
-  input: "^gradients/mul_grad/tuple/group_deps"
+  input: "test/gradients/test/mul_grad/Reshape_1"
+  input: "^test/gradients/test/mul_grad/tuple/group_deps"
   attr {
     key: "T"
     value {
@@ -1968,17 +1968,17 @@ node {
     key: "_class"
     value {
       list {
-        s: "loc:@gradients/mul_grad/Reshape_1"
+        s: "loc:@test/gradients/test/mul_grad/Reshape_1"
       }
     }
   }
 }
 node {
-  name: "GradientDescent/update_w/ApplyGradientDescent"
+  name: "test/GradientDescent/update_test/w/ApplyGradientDescent"
   op: "ApplyGradientDescent"
-  input: "w"
-  input: "Variable/read"
-  input: "gradients/mul_grad/tuple/control_dependency"
+  input: "test/w"
+  input: "test/Variable/read"
+  input: "test/gradients/test/mul_grad/tuple/control_dependency"
   attr {
     key: "T"
     value {
@@ -1989,7 +1989,7 @@ node {
     key: "_class"
     value {
       list {
-        s: "loc:@w"
+        s: "loc:@test/w"
       }
     }
   }
@@ -2001,11 +2001,11 @@ node {
   }
 }
 node {
-  name: "GradientDescent/update_b/ApplyGradientDescent"
+  name: "test/GradientDescent/update_test/b/ApplyGradientDescent"
   op: "ApplyGradientDescent"
-  input: "b"
-  input: "Variable/read"
-  input: "gradients/hypothesis_grad/tuple/control_dependency_1"
+  input: "test/b"
+  input: "test/Variable/read"
+  input: "test/gradients/test/hypothesis_grad/tuple/control_dependency_1"
   attr {
     key: "T"
     value {
@@ -2016,7 +2016,7 @@ node {
     key: "_class"
     value {
       list {
-        s: "loc:@b"
+        s: "loc:@test/b"
       }
     }
   }
@@ -2028,17 +2028,17 @@ node {
   }
 }
 node {
-  name: "GradientDescent"
+  name: "test/GradientDescent"
   op: "NoOp"
-  input: "^GradientDescent/update_b/ApplyGradientDescent"
-  input: "^GradientDescent/update_w/ApplyGradientDescent"
+  input: "^test/GradientDescent/update_test/b/ApplyGradientDescent"
+  input: "^test/GradientDescent/update_test/w/ApplyGradientDescent"
 }
 node {
   name: "init"
   op: "NoOp"
-  input: "^Variable/Assign"
-  input: "^b/Assign"
-  input: "^w/Assign"
+  input: "^test/Variable/Assign"
+  input: "^test/b/Assign"
+  input: "^test/w/Assign"
 }
 node {
   name: "save/filename/input"
@@ -2116,9 +2116,9 @@ node {
             size: 3
           }
         }
-        string_val: "Variable"
-        string_val: "b"
-        string_val: "w"
+        string_val: "test/Variable"
+        string_val: "test/b"
+        string_val: "test/w"
       }
     }
   }
@@ -2155,9 +2155,9 @@ node {
   input: "save/Const"
   input: "save/SaveV2/tensor_names"
   input: "save/SaveV2/shape_and_slices"
-  input: "Variable"
-  input: "b"
-  input: "w"
+  input: "test/Variable"
+  input: "test/b"
+  input: "test/w"
   attr {
     key: "dtypes"
     value {
@@ -2209,9 +2209,9 @@ node {
             size: 3
           }
         }
-        string_val: "Variable"
-        string_val: "b"
-        string_val: "w"
+        string_val: "test/Variable"
+        string_val: "test/b"
+        string_val: "test/w"
       }
     }
   }
@@ -2264,7 +2264,7 @@ node {
 node {
   name: "save/Assign"
   op: "Assign"
-  input: "Variable"
+  input: "test/Variable"
   input: "save/RestoreV2"
   attr {
     key: "T"
@@ -2276,7 +2276,7 @@ node {
     key: "_class"
     value {
       list {
-        s: "loc:@Variable"
+        s: "loc:@test/Variable"
       }
     }
   }
@@ -2296,7 +2296,7 @@ node {
 node {
   name: "save/Assign_1"
   op: "Assign"
-  input: "b"
+  input: "test/b"
   input: "save/RestoreV2:1"
   attr {
     key: "T"
@@ -2308,7 +2308,7 @@ node {
     key: "_class"
     value {
       list {
-        s: "loc:@b"
+        s: "loc:@test/b"
       }
     }
   }
@@ -2328,7 +2328,7 @@ node {
 node {
   name: "save/Assign_2"
   op: "Assign"
-  input: "w"
+  input: "test/w"
   input: "save/RestoreV2:2"
   attr {
     key: "T"
@@ -2340,7 +2340,7 @@ node {
     key: "_class"
     value {
       list {
-        s: "loc:@w"
+        s: "loc:@test/w"
       }
     }
   }
