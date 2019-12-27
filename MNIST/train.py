@@ -58,11 +58,11 @@ def train_network(graph,ckpt,point_dir,pbtxt):
     with tf.Session() as sess:
         sess.run(init)
         # 총 20,000 회 훈련, 정확도는 99 % 이상
-        for i in range(20000):
+        for i in range(300):
         # 한 번에 50 개의 이미지 처리
             batch = mnist.train.next_batch(50)
             # 100 회마다 저장 및 출력
-            if i % 100 == 0:
+            if i % 1 == 0:
             # feed_dict가 데이터를 공급하면 데이터가 28x28로 완전히 재구성됨.
                 train_accuracy = sess.run([graph['accuracy']], feed_dict={
                                                                            graph['x']:reshape_batch(batch[0]),    # 배치 [0] 저장된 이미지 데이터
@@ -91,4 +91,3 @@ if __name__ == "__main__":
     pbtxt = 'mnist.pbtxt'
     g1 = create_training_graph(False)
     train_network(g1,ckpt,point_dir,pbtxt)
-

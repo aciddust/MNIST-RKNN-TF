@@ -1,12 +1,12 @@
 import tensorflow as tf
 
 # 28x28 입력, 10가지 결과
-x = tf.compat.v1.placeholder("float", [None, 28,28],name='x')
-y_ = tf.compat.v1.placeholder("float", [None,10],name='y_')
-keep_prob = tf.compat.v1.placeholder("float", name='keep_prob')
+x = tf.placeholder("float", [None, 28,28],name='x')
+y_ = tf.placeholder("float", [None,10],name='y_')
+keep_prob = tf.placeholder("float", name='keep_prob')
 
 def weight_variable(shape,name):
-    initial = tf.random.truncated_normal(shape, stddev=0.1)
+    initial = tf.truncated_normal(shape, stddev=0.1)
     return tf.Variable(initial,name=name)
 
 def bias_variable(shape,name):
@@ -17,7 +17,7 @@ def conv2d(x, W):
     return tf.nn.conv2d(x, W, strides=[1, 1, 1, 1], padding='SAME')
 
 def max_pool_2x2(x):
-    return tf.nn.max_pool2d(x, ksize=[1, 2, 2, 1],
+    return tf.nn.max_pool(x, ksize=[1, 2, 2, 1],
                         strides=[1, 2, 2, 1], padding='SAME')
 
 # convolution layer

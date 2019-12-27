@@ -20,13 +20,13 @@ def load_variables_from_checkpoint(sess, start_checkpoint):
       sess: TensorFlow session.
       start_checkpoint: Path to saved checkpoint on disk.
     """
-    saver = tf.compat.v1.train.Saver(tf.compat.v1.global_variables())
+    saver = tf.train.Saver(tf.global_variables())
     saver.restore(sess, start_checkpoint)
 
 def frozen(is_quantify,ckpt,pbtxt):
     # 모델을 생성하고 생성된 모델의 가중치를 불러옴
-    init = tf.compat.v1.global_variables_initializer()
-    with tf.compat.v1.Session() as sess:
+    init = tf.global_variables_initializer()
+    with tf.Session() as sess:
         sess.run(init)
     # 추론 그래프
         logits = create_inference_graph()  
@@ -36,15 +36,15 @@ def frozen(is_quantify,ckpt,pbtxt):
         load_variables_from_checkpoint(sess, ckpt)
         # Turn all the variables into inline constants inside the graph and save it.
     # frozen：ckpt + pbtxt
-        frozen_graph_def = tf.compat.v1.graph_util.convert_variables_to_constants(
+        frozen_graph_def = tf.graph_util.convert_variables_to_constants(
             sess, sess.graph_def, ['y_conv'])
     # 최종 PB 모델 저장
-        tf.io.write_graph(
+        tf.train.write_graph(
             frozen_graph_def,
             os.path.dirname(pbtxt),
             os.path.basename(pbtxt),
             as_text=False)
-        tf.compat.v1.logging.info('Saved frozen graph to %s', pbtxt)
+        tf.logging.info('Saved frozen graph to %s', pbtxt)
 
 if __name__ == "__main__":
     ckpt = './checkpoint/mnist.ckpt'

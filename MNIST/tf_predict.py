@@ -13,6 +13,8 @@ reshape_test = []
 for t in origin_test:
     b = t.reshape(28,28)
     reshape_test.append(b)
+
+result_string = ''
 for length in [100,500,1000,10000]:
     with tf.Graph().as_default():
         output_graph_def = tf.GraphDef()
@@ -32,4 +34,8 @@ for length in [100,500,1000,10000]:
             correct_prediction_2 = tf.equal(tf.argmax(y_conv_2, 1), tf.argmax(y_2, 1))
             accuracy_2 = tf.reduce_mean(tf.cast(correct_prediction_2, "float"))
             print(accuracy_2)
-            print('%d:'%length,"check accuracy %g" % sess.run(accuracy_2))
+
+            result_string += str(length) + '장의 이미지에서 예측한 결과의 일치율 : '+str(round(sess.run(accuracy_2)*100, 2)) +'%\n'
+            #print('%d 길이의 데이터셋에서'%length,"정확도는 %g" % sess.run(accuracy_2))
+
+print(result_string)

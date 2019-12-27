@@ -60,7 +60,7 @@ def predict(rknn,length):
         pred, prob = get_predict(outputs)     # 추론 결과를 시각적 정보로 전환
         if list(mnist.test.labels[i]).index(1) == pred:
             acc_count += 1
-        if i%100 == 0:
+        if i%10 == 0:
             print('입력 값 : {0} / 예상한 값 : {1} / 예측 정확도 : {2} / 맞은 갯수 : {3}'.format(list(mnist.test.labels[i]).index(1),pred, prob, acc_count))
     result = float(acc_count)/length
     print('result:',result)

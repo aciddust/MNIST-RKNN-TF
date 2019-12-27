@@ -17,9 +17,11 @@ numpy 1.17.4 (* maybe u need downgrade version.)
 ## USAGE
 
 ```bash
+python get_image.py
+cd ../MNIST_data && gzip -d t10k-images.idx3-ubyte.gz
+cd ../MNIST
 python train.py
 python freeze.py
-python get_image.py
 python rknn_transfer.py
 python tf_predict.py
 python rk_predict.py
