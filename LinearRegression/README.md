@@ -6,11 +6,11 @@ WX + b
 
 ## ENV
 
-Python 3.6.8 ( * I'm using Conda Environment)
+Python 3.5.6 ( * I'm using Conda Environment)
 
-Tensorflow 1.14.0
+Tensorflow 1.11.0
 
-Numpy 1.14.5 
+Numpy 1.18.0  
 
 
 

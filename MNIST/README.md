@@ -6,11 +6,11 @@ MNIST for RKNN (with TF)
 
 ## ENV
 
-Python 3.6.8 ( * I'm using Conda Environment )
+Python 3.5.6 ( * I'm using Conda Environment )
 
-Tensorflow 1.14.0
+Tensorflow 1.11.0
 
-numpy 1.17.4 (* maybe u need downgrade version.)
+numpy 1.18.0 (* maybe u need downgrade version.)
 
 
 

@@ -15,7 +15,8 @@ for t in origin_test:
     reshape_test.append(b)
 
 result_string = ''
-for length in [100,500,1000,10000]:
+#for length in [100,500,1000,10000]:
+for length in [1]:
     with tf.Graph().as_default():
         output_graph_def = tf.GraphDef()
         output_graph_path = './mnist_frozen_graph.pb'
